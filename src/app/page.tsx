@@ -48,7 +48,7 @@ export default function Home() {
               <Image
                 width={500}
                 height={500}
-                src="/profile.jpg"
+                src="./profile.jpg"
                 alt="Profile Arief Nur A"
                 className="rounded-full shadow-lg mx-auto w-48 h-48 object-cover"
               />
