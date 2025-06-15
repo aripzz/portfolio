@@ -111,7 +111,7 @@ const TimelineSection: React.FC = () => {
     };
 
     return (
-        <section id="experience" className="min-h-screen flex items-center justify-center p-4 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <section id="experience" className="min-h-screen flex items-center justify-center p-4 bg-blue-50 dark:bg-blue-950 text-gray-900 dark:text-gray-100">
             <motion.div
                 className="relative py-6 sm:py-12 w-full max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800 rounded-lg shadow-xl p-8"
                 initial={{ opacity: 0, y: 50 }}

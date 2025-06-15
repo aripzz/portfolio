@@ -1,7 +1,5 @@
 import type { NextConfig } from "next";
-
 const nextConfig: NextConfig = {
-  basePath: '/portfolio',
   images: {
     remotePatterns: [
       {
@@ -12,10 +10,8 @@ const nextConfig: NextConfig = {
       },
     ],
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment', // Disarankan saat dangerouslyAllowSVG true
-    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;", // Contoh CSP
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
-  output: 'export',
 };
-
 export default nextConfig;

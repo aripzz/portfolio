@@ -170,9 +170,9 @@ const ProjectsSection: React.FC = () => {
     };
 
     return (
-        <section id="project" className="container min-h-screen max-w-7xl mx-auto py-16 px-4 bg-gray-100 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <section id="project" className="container min-h-screen max-w-7xl mx-auto py-16 px-4 text-gray-900 dark:text-white">
             <motion.h2
-                className="text-4xl font-extrabold text-center text-gray-900 mb-12 dark:text-white"
+                className="text-4xl font-extrabold text-center mb-12"
                 initial={{ opacity: 0, y: -50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
@@ -186,14 +186,12 @@ const ProjectsSection: React.FC = () => {
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.3 }} // Pemicu saat 30% dari grid terlihat
+                viewport={{ once: true, amount: 0.4 }} // Pemicu saat 40% dari grid terlihat
             >
                 {projects.map((project) => (
                     <motion.div
                         key={project.id}
                         variants={itemVariants}
-                    // Pastikan ProjectCard Anda menerima ref jika Anda ingin menerapkan motion langsung padanya
-                    // Atau pastikan ProjectCard itu sendiri adalah motion.div
                     >
                         <ProjectCard
                             project={project}

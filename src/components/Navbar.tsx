@@ -9,7 +9,6 @@ import { CiPhone } from 'react-icons/ci';
 import { motion } from 'framer-motion';
 import { useSideBar } from '../context/sidebarContext';
 import { useTheme } from 'next-themes';
-
 const menuItems = [
     {
         id: 'home',
@@ -37,8 +36,6 @@ const menuItems = [
         label: 'Contact'
     }
 ];
-
-
 export default function Navbar() {
     const { theme, setTheme } = useTheme();
     const { isOpen, toggle } = useSideBar();
@@ -51,7 +48,7 @@ export default function Navbar() {
         }
     };
     return (
-        <nav className={`flex fixed top-0 left-0 min-h-screen shadow-md h-screen p-2 flex-col duration-500 bg-blue-600 text-white ${isOpen ? 'w-60' : 'w-16'}`}>
+        <nav className={`flex fixed top-0 left-0 min-h-screen shadow-md h-screen p-2 flex-col duration-500 bg-blue-700 text-white ${isOpen ? 'w-60' : 'w-16'}`}>
             <div className=' px-3 py-2 h-20 flex items-center'>
                 <MdMenuOpen size={34} className={` duration-500 cursor-pointer ${!isOpen && ' rotate-180'}`} onClick={() => toggle(!isOpen)} />
                 <p className={`${!isOpen && 'w-0 translate-x-24'} text-white duration-500 overflow-hidden`}>Arief Dev</p>
