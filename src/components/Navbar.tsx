@@ -48,7 +48,7 @@ export default function Navbar() {
         }
     };
     return (
-        <nav className={`flex fixed top-0 left-0 min-h-screen shadow-md h-screen p-2 flex-col duration-500 bg-blue-700 text-white ${isOpen ? 'w-60' : 'w-16'}`}>
+        <nav className={`flex fixed top-0 left-0 min-h-screen shadow-md h-screen p-2 flex-col duration-500 bg-blue-800 dark:bg-gray-900 text-white ${isOpen ? 'w-60' : 'w-16'}`}>
             <div className=' px-3 py-2 h-20 flex items-center'>
                 <MdMenuOpen size={34} className={` duration-500 cursor-pointer ${!isOpen && ' rotate-180'}`} onClick={() => toggle(!isOpen)} />
                 <p className={`${!isOpen && 'w-0 translate-x-24'} text-white duration-500 overflow-hidden`}>Arief Dev</p>
@@ -83,16 +83,16 @@ export default function Navbar() {
                 >
                     <div>
                         {theme === 'dark' ? (
-                            <MdLightMode size={24} />
-                        ) : (
                             <MdDarkMode size={24} />
+                        ) : (
+                            <MdLightMode size={24} />
                         )}
                     </div>
                     <p className={`${!isOpen && 'w-0 translate-x-24'} duration-500 overflow-hidden`}>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</p>
                     <p className={`${isOpen && 'hidden'} absolute left-32 shadow-md rounded-md
                          w-0 p-0 text-black z-10 bg-white duration-100 overflow-hidden group-hover:w-fit group-hover:p-2 group-hover:left-16
                         `}>
-                        {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
+                        {theme === 'dark' ? 'Dark Mode' : 'Light Mode'}
                     </p>
                 </motion.li>
             </div>

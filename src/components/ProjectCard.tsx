@@ -9,7 +9,7 @@ interface ProjectCardProps {
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, onClick }) => (
     <div
-        className="bg-white dark:bg-gray-800 rounded-lg shadow-lg overflow-hidden card-project cursor-pointer"
+        className="bg-white dark:bg-gray-900 rounded-lg shadow-lg overflow-hidden card-project cursor-pointer"
         onClick={() => onClick(project.id)}
         data-project-id={project.id}
     >

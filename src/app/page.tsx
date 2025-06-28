@@ -8,11 +8,11 @@ import { TypeAnimation } from 'react-type-animation'
 import { motion } from 'framer-motion';
 export default function Home() {
   const { isOpen } = useSideBar();
-  return (<main className="main">
-    <div id="home" className={`bg-gray-100 dark:bg-gray-900 duration-500 ${isOpen ? 'ml-60' : 'ml-16'}`}>
+  return (<main className="main bg-gray-100 dark:bg-gray-800">
+    <div id="home" className={`duration-500 ${isOpen ? 'ml-60' : 'ml-16'}`}>
       <section
         className='min-h-screen flex items-center justify-center py-16 px-4
-                 bg-gradient-to-br from-blue-700 to-gray-900 text-white '
+                  dark:text-white text-gray-900'
       >
         <motion.div
           className="container mx-auto text-center"
@@ -53,9 +53,8 @@ export default function Home() {
           </motion.p>
           <motion.a
             href="#project"
-            // Button colors adjusted for contrast against the new gradient background
             className="bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold
-                     hover:bg-purple-100"
+                     hover:bg-blue-300 shadow-xl/20"
             initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.4, delay: 0.8, ease: "easeOut" }}
@@ -67,9 +66,9 @@ export default function Home() {
         </motion.div>
       </section>
       <hr className="border-t border-gray-300" />
-      <section id="about" className="min-h-screen flex items-center justify-center py-16 px-4 bg-blue-50 dark:bg-blue-950 text-gray-900 dark:text-gray-100
+      <section id="about" className="min-h-screen flex items-center justify-center py-16 px-4 text-gray-900 dark:text-gray-100
 ">
-        <div className="container mx-auto py-16 px-4"> {/* Added mx-auto py-16 px-4 for consistent padding */}
+        <div className="container mx-auto py-16 px-4">
           <motion.h2
             className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white"
             initial={{ opacity: 0, y: -50 }}
@@ -92,14 +91,14 @@ export default function Home() {
                 whileHover={{ scale: 1.05 }} // Scales up to 105% on hover
                 whileTap={{ scale: 2 }}   // Scales down to 95% on tap/click
                 transition={{ type: "spring", stiffness: 400, damping: 10 }} // Smooth spring animation
-                className="rounded-full shadow-lg mx-auto w-68 h-68 overflow-hidden" // Added overflow-hidden to contain scale
+                className="rounded-full shadow-lg mx-auto w-68 h-68 overflow-hidden shadow-xl/20" // Added overflow-hidden to contain scale
               >
                 <Image
                   width={500}
                   height={500}
                   src="./profile.jpg"
                   alt="Profile Arief Nur A"
-                  className="w-full h-full object-cover" // Image takes full size of its parent motion.div
+                  className="w-full h-full object-cover shadow-xl/20" // Image takes full size of its parent motion.div
                 />
               </motion.div>
             </motion.div>

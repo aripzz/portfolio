@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 const projects: Project[] = [
     {
         id: "project-1",
-        image: "https://placehold.co/400x250/A78BFA/ffffff?text=Custom+ERP",
+        image: "https://placehold.co/400x250/A78BFA/ffffff?text=Custome+ERP",
         title: "Sistem ERP Custome Win Printing",
         shortDescription: "Pengembangan dan pemeliharaan sistem ERP yang disesuaikan untuk optimasi operasional Win Printing.",
         techs: ["PHP", "Golang", "MySQL", "Docker", "RabbitMQ", "Webhooks"],

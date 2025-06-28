@@ -253,3 +253,9 @@ require('dotenv').config();
 
 ===============================================================================================
 
+
+https://www.youtube.com/watch?v=YuPOYBXC44c
+
+rangkum video dari link yangku kirim setelah ini
+
+gunakan bullet point, fokus para poin utama, maksimal 3 kalimat per point. sertakan timestamp dan kelompokan berdasarkan tema

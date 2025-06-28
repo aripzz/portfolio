@@ -31,6 +31,22 @@ const events: TimelineEvent[] = [
     },
     {
         id: "event-2",
+        title: "Golang Developer",
+        subtitle: "PT MSBU Konsultan Indonesia | Feb 2024 - Jul 2024",
+        details: {
+            description:
+                "Berfokus pada pengembangan dan pemeliharaan RESTful API menggunakan Golang dengan framework Fiber. Mengoptimalkan query SQL dan menerapkan refactoring kode untuk meningkatkan kinerja aplikasi. Bertanggung jawab untuk deployment microservices dan pengelolaan lingkungan pengembangan menggunakan Docker. Berkontribusi dalam dokumentasi API menggunakan Swagger dan berkolaborasi dengan tim lintas fungsi.",
+            items: [
+                "Mengembangkan dan memelihara RESTful API menggunakan Golang dengan Fiber framework.",
+                "Mengoptimalkan query SQL dan refactoring kode untuk peningkatan kinerja.",
+                "Melakukan deployment microservices dan mengelola lingkungan pengembangan dengan Docker.",
+                "Mendokumentasikan API menggunakan Swagger dan berkolaborasi dengan tim lintas fungsi.",
+            ],
+        },
+    },
+    {
+        id: "event-3",
+
         title: "Full Stack Developer",
         subtitle: "PT AKU CINTA INDONESIA | Feb 2023 - Dec 2023",
         details: {
@@ -45,23 +61,8 @@ const events: TimelineEvent[] = [
         },
     },
     {
-        id: "event-3",
-        title: "Full Stack Developer",
-        subtitle: "PT MSBU Konsultan Indonesia | Feb 2024 - Jul 2024",
-        details: {
-            description:
-                "Berfokus pada pengembangan dan pemeliharaan RESTful API menggunakan Golang dengan framework Fiber. Mengoptimalkan query SQL dan menerapkan refactoring kode untuk meningkatkan kinerja aplikasi. Bertanggung jawab untuk deployment microservices dan pengelolaan lingkungan pengembangan menggunakan Docker. Berkontribusi dalam dokumentasi API menggunakan Swagger dan berkolaborasi dengan tim lintas fungsi.",
-            items: [
-                "Mengembangkan dan memelihara RESTful API menggunakan Golang dengan Fiber framework.",
-                "Mengoptimalkan query SQL dan refactoring kode untuk peningkatan kinerja.",
-                "Melakukan deployment microservices dan mengelola lingkungan pengembangan dengan Docker.",
-                "Mendokumentasikan API menggunakan Swagger dan berkolaborasi dengan tim lintas fungsi.",
-            ],
-        },
-    },
-    {
         id: "event-4",
-        title: "Full Stack Developer",
+        title: "Staff IT",
         subtitle: "PT Mamalyfe Selalu Di Berkati | Feb 2021 - Aug 2022",
         details: {
             description:
@@ -76,8 +77,8 @@ const events: TimelineEvent[] = [
     },
     {
         id: "event-5",
-        title: "Bachelor of Information Systems",
-        subtitle: "Universitas Dinamika | Degree obtained 2023",
+        title: "S1 System Informasi",
+        subtitle: "Universitas Dinamika | Lulus 2023",
         details: {
             description:
                 "Lulus dengan gelar Sarjana Sistem Informasi pada tahun 2023, menunjukkan dasar yang kuat dalam ilmu komputer dan pengembangan sistem. Mencapai IPK 3.33 dan meraih juara 2 dalam Kompetisi Pemrograman Internal, menunjukkan kemampuan analitis dan pemecahan masalah yang kuat.",
@@ -111,7 +112,7 @@ const TimelineSection: React.FC = () => {
     };
 
     return (
-        <section id="experience" className="min-h-screen flex items-center justify-center p-4 bg-blue-50 dark:bg-blue-950 text-gray-900 dark:text-gray-100">
+        <section id="experience" className="min-h-screen flex items-center justify-center p-4  text-gray-900 dark:text-gray-100">
             <motion.div
                 className="relative py-6 sm:py-12 w-full max-w-7xl mx-auto bg-gray-50 dark:bg-gray-800 rounded-lg shadow-xl p-8"
                 initial={{ opacity: 0, y: 50 }}
@@ -190,7 +191,7 @@ const TimelineSection: React.FC = () => {
                     {/* Timeline Details */}
                     <div
                         id="timeline-details-container"
-                        className="relative bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg min-h-[300px]"
+                        className="relative bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg min-h-[600px]"
                     >
                         <AnimatePresence mode='wait'> {/* 'wait' mode akan menunggu animasi keluar selesai sebelum animasi masuk dimulai */}
                             {selectedEvent && ( // Render hanya jika selectedEvent ada
