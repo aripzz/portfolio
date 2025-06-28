@@ -88,7 +88,7 @@ export default function Navbar() {
                             <MdLightMode size={24} />
                         )}
                     </div>
-                    <p className={`${!isOpen && 'w-0 translate-x-24'} duration-500 overflow-hidden`}>{theme === 'dark' ? 'Light Mode' : 'Dark Mode'}</p>
+                    <p className={`${!isOpen && 'w-0 translate-x-24'} duration-500 overflow-hidden`}>{theme === 'dark' ? 'Dark Mode' : 'Light Mode'}</p>
                     <p className={`${isOpen && 'hidden'} absolute left-32 shadow-md rounded-md
                          w-0 p-0 text-black z-10 bg-white duration-100 overflow-hidden group-hover:w-fit group-hover:p-2 group-hover:left-16
                         `}>
