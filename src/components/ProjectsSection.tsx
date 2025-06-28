@@ -135,16 +135,13 @@ const projects: Project[] = [
 
 const ProjectsSection: React.FC = () => {
     const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-
     const handleProjectClick = (id: string) => {
         const project = projects.find((p) => p.id === id);
         setSelectedProject(project || null);
     };
-
     const handleCloseDetail = () => {
         setSelectedProject(null);
     };
-
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
@@ -154,8 +151,6 @@ const ProjectsSection: React.FC = () => {
             }
         }
     };
-
-    // Variasi animasi untuk setiap ProjectCard
     const itemVariants = {
         hidden: { opacity: 0, y: 50 },
         visible: {
@@ -168,7 +163,6 @@ const ProjectsSection: React.FC = () => {
             }
         }
     };
-
     return (
         <section id="project" className="container min-h-screen max-w-7xl mx-auto py-16 px-4 text-gray-900 dark:text-white">
             <motion.h2
@@ -180,13 +174,12 @@ const ProjectsSection: React.FC = () => {
             >
                 Proyek Saya
             </motion.h2>
-
             <motion.div
                 className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
                 variants={containerVariants}
                 initial="hidden"
                 whileInView="visible"
-                viewport={{ once: true, amount: 0.4 }} // Pemicu saat 40% dari grid terlihat
+                viewport={{ once: true, amount: 0.4 }}
             >
                 {projects.map((project) => (
                     <motion.div
@@ -200,14 +193,13 @@ const ProjectsSection: React.FC = () => {
                     </motion.div>
                 ))}
             </motion.div>
-
             {selectedProject && (
                 <div className="fixed inset-0 z-30 flex items-center justify-center bg-black bg-opacity-30">
                     <motion.div
                         className="relative w-full max-w-3xl mx-auto"
                         initial={{ opacity: 0, scale: 0.8 }}
                         animate={{ opacity: 1, scale: 1 }}
-                        exit={{ opacity: 0, scale: 0.8 }} // Untuk animasi keluar saat ditutup
+                        exit={{ opacity: 0, scale: 0.8 }}
                         transition={{ duration: 0.3 }}
                     >
                         <ProjectDetail project={selectedProject} onClose={handleCloseDetail} />

@@ -191,7 +191,7 @@ const TimelineSection: React.FC = () => {
                     {/* Timeline Details */}
                     <div
                         id="timeline-details-container"
-                        className="relative bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg min-h-[600px]"
+                        className="relative bg-white dark:bg-gray-800 p-8 rounded-lg shadow-lg min-h-[750px]"
                     >
                         <AnimatePresence mode='wait'> {/* 'wait' mode akan menunggu animasi keluar selesai sebelum animasi masuk dimulai */}
                             {selectedEvent && ( // Render hanya jika selectedEvent ada
