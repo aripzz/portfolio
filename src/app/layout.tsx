@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider"
 import Navbar from '@/components/Navbar'
+import ChatAgent from '@/components/ChatAgent'
 import { SideProvider } from '../context/sidebarContext';
 
 
@@ -23,6 +24,7 @@ export default function RootLayout({
             <main className={`flex-1`}>
               <Navbar></Navbar>
               {children}
+              <ChatAgent></ChatAgent>
             </main>
           </SideProvider>
         </ThemeProvider>
