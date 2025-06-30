@@ -22,9 +22,8 @@ Selalu berikan jawaban singkat jangan terlalu detail
 jawab "tidak tahu" jika tidak mempunyai datanya.`;
 export async function POST(req: Request) {
   try {
-    const { messages } = await req.json();
-    const apiKey: string = process.env.DEEPSEEK_API_KEY || "";
-    const model: string = "deepseek/deepseek-r1-0528:free";
+    const { messages, model = "deepseek/deepseek-r1-0528:free" } = await req.json();
+    const apiKey = process.env.DEEPSEEK_API_KEY
     if (!apiKey) {
       return new Response("API key is required", { status: 400 });
     }
