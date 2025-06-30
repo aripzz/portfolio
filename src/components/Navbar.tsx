@@ -53,8 +53,8 @@ export default function Navbar() {
   }, []);
   return (
     <nav
-      className={`flex fixed top-0 z-100 left-0 min-h-screen shadow-md h-screen p-2 flex-col duration-500 bg-blue-800 dark:bg-gray-900 text-white ${
-        isOpen ? "w-60" : "w-16"
+      className={`flex fixed top-0 z-100 left-0 min-h-screen shadow-md h-screen p-2 duration-500 bg-blue-800 dark:bg-gray-900 text-white ${
+        isOpen && "hidden"
       }`}
     >
       <div className=" px-3 py-2 h-20 flex items-center">

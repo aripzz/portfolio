@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className="overflow-x-hidden flex">
         <ThemeProvider attribute="class" defaultTheme="system">
           <SideProvider>
-            <main className={`flex-1`}>
+            <main>
               <Navbar></Navbar>
               {children}
               <ChatAgent></ChatAgent>

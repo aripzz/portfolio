@@ -1,19 +1,16 @@
 "use client";
 import Image from "next/image";
 import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
-import { useSideBar } from "../context/sidebarContext";
 import TimelineSection from "@/components/TimelineSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ScrollVelocity from "@/components/ScrollVelocity";
-// import { TypeAnimation } from "react-type-animation";
 import { motion } from "framer-motion";
 export default function Home() {
-  const { isOpen } = useSideBar();
   return (
-    <main className="main bg-gray-100 dark:bg-gray-800">
-      <div id="home" className={`duration-500 ${isOpen ? "ml-60" : "ml-16"}`}>
+    <main className="main bg-gray-100 dark:bg-gray-800 container">
+      <div id="home" className={`duration-500`}>
         <header className="relative bg-slate-800 text-center flex items-center justify-center min-h-screen">
-          <div className="container">
+          <div className="">
             <div
             className="flex flex-col items-center justify-center h-80"
               style={{
@@ -39,8 +36,7 @@ export default function Home() {
               >
                 <ScrollVelocity
                   texts={["Fullstack Web developer"]}
-                  className="custom-scroll-text"
-                />
+                  className="custom-scroll-text"/>
               </div>
             </div>
             <h1 className="text-4xl z-3 md:text-6xl font-extrabold text-white leading-tight mb-4">
