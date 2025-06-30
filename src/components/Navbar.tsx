@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import { MdMenuOpen, MdLightMode, MdDarkMode } from "react-icons/md";
+import { MdLightMode, MdDarkMode } from "react-icons/md";
 import { IoHomeOutline } from "react-icons/io5";
 import { FaUserAlt } from "react-icons/fa";
 import { MdOutlineWorkOutline } from "react-icons/md";

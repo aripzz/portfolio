@@ -37,7 +37,7 @@ export default function Home() {
            <Image
                 width={500}
                 height={500}
-                src="/profile.jpg"
+                src="./profile.jpg"
                 alt="Foto Profil Arief Nur Abdullah"
                 className="rounded-full z-1 absolute w-80 h-80 mx-auto mb-6 border-4 border-blue-500 shadow-lg"
               />
