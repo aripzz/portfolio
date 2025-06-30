@@ -7,7 +7,7 @@ import ScrollVelocity from "@/components/ScrollVelocity";
 import { motion } from "framer-motion";
 export default function Home() {
   return (
-    <main className="main bg-gray-100 dark:bg-gray-800 container">
+    <main className="main bg-gray-100 dark:bg-gray-800 w-full">
       <div id="home" className={`duration-500`}>
         <header className="relative bg-slate-800 text-center flex items-center justify-center min-h-screen">
           <div className="">
@@ -23,7 +23,7 @@ export default function Home() {
               <Image
                 width={500}
                 height={500}
-                src="/profile.jpg"
+                src="./profile.jpg"
                 alt="Foto Profil Arief Nur Abdullah"
                 className="rounded-full z-1 absolute w-80 h-80 mx-auto mb-6 border-4 border-blue-500 shadow-lg"
               />
