@@ -3,60 +3,73 @@ import Image from "next/image";
 import { FaLinkedinIn, FaGithub, FaInstagram } from "react-icons/fa";
 import TimelineSection from "@/components/TimelineSection";
 import ProjectsSection from "@/components/ProjectsSection";
-import ScrollVelocity from "@/components/ScrollVelocity";
+// import ScrollVelocity from "@/components/ScrollVelocity";
 import { motion } from "framer-motion";
+import { useSideBar } from "../context/sidebarContext";
 export default function Home() {
+    const { toggle, isOpen } = useSideBar();
   return (
     <main className="main bg-gray-100 dark:bg-gray-800 w-full">
       <div id="home" className={`duration-500`}>
-        <header className="relative bg-slate-800 text-center flex items-center justify-center min-h-screen">
-          <div className="">
-            <div
-            className="flex flex-col items-center justify-center h-80"
-              style={{
-                position: "relative",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-              }}
-            >
-              <Image
+        <header className="relative bg-slate-800 text-center flex items-center justify-center min-h-screen p-4 sm:p-6 lg:p-8">
+       <nav className="absolute top-4 left-4 z-20">
+        <button className="text-white p-2 rounded-md hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500" onClick={() => toggle(!isOpen)}>
+          <svg
+            className="w-8 h-8"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </button>
+      </nav>
+      <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto">
+       
+        <div className="relative flex flex-col items-center justify-center h-80 w-80 mb-8 sm:mb-12">
+        
+           <Image
                 width={500}
                 height={500}
-                src="./profile.jpg"
+                src="/profile.jpg"
                 alt="Foto Profil Arief Nur Abdullah"
                 className="rounded-full z-1 absolute w-80 h-80 mx-auto mb-6 border-4 border-blue-500 shadow-lg"
               />
-
-              <div
-                style={{
-                  position: "relative",
-                  zIndex: 0,
-                }}
-              >
-                <ScrollVelocity
-                  texts={["Fullstack Web developer"]}
-                  className="custom-scroll-text"/>
-              </div>
-            </div>
-            <h1 className="text-4xl z-3 md:text-6xl font-extrabold text-white leading-tight mb-4">
-              Halo, saya <span className="text-accent">Arief Nur Abdullah</span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto">
-              Seorang{" "}
-              <span className="font-semibold text-white">
-                Fullstack Web Developer
-              </span>{" "}
-              yang bersemangat dalam membangun solusi web yang inovatif dan
-              efisien.
-            </p>
-
-            <a href="#proyek" className="bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold
-                     hover:bg-blue-300 shadow-xl/20">
-              Lihat Proyek Saya
-            </a>
+          {/* Text below the image, replacing the ScrollVelocity component */}
+          <div className="mt-4 text-xl sm:text-2xl font-semibold text-slate-300 absolute bottom-0 translate-y-full">
+            Fullstack Web developer
           </div>
-        </header>
+        </div>
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
+            Halo, saya <span className="text-blue-500">Arief Nur Abdullah</span>
+          </h1>
+          {/* Subtitle/description */}
+          <p className="text-xl md:text-2xl text-slate-300 mb-8 max-w-2xl mx-auto">
+            Seorang{" "}
+            <span className="font-semibold text-white">
+              Fullstack Web Developer
+            </span>{" "}
+            yang bersemangat dalam membangun solusi web yang inovatif dan efisien.
+          </p>
+
+          {/* Call to action button */}
+          <a
+            href="#proyek"
+            className="bg-blue-700 text-white px-6 py-3 rounded-full text-lg font-semibold
+                       hover:bg-blue-600 transition-colors duration-300 shadow-xl"
+          >
+            Lihat Proyek Saya
+          </a>
+        </div>
+      </div>
+    </header>
         <hr className="border-t border-gray-300" />
         <section
           id="about"
