@@ -85,7 +85,7 @@ export default function Home() {
                     Saya adalah seorang pengembang web fullstack dengan pengalaman dalam mendesain, mengembangkan, dan memelihara aplikasi web yang responsif dan skalabel. Saya memiliki minat yang kuat dalam menciptakan pengalaman pengguna yang intuitif dan fungsional.
                 </p>
                 <p className="text-lg leading-relaxed text-slate-300">
-                    Keahlian saya meliputi <span className="font-medium text-white">JavaScript (React, Node.js), Python (Django, Flask), HTML, CSS (Tailwind CSS)</span>, serta bekerja dengan database seperti <span class="font-medium text-white">PostgreSQL dan MongoDB</span>. Saya selalu antusias untuk belajar teknologi baru dan menerapkan praktik terbaik dalam setiap proyek.
+                    Keahlian saya meliputi <span className="font-medium text-white">JavaScript (React, Node.js), Python (Django, Flask), HTML, CSS (Tailwind CSS)</span>, serta bekerja dengan database seperti <span className="font-medium text-white">PostgreSQL dan MongoDB</span>. Saya selalu antusias untuk belajar teknologi baru dan menerapkan praktik terbaik dalam setiap proyek.
                 </p>
             </div>
             <div className="md:order-1 flex justify-center">
