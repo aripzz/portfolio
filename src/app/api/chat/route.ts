@@ -22,8 +22,9 @@ Selalu berikan jawaban singkat jangan terlalu detail
 jawab "tidak tahu" jika tidak mempunyai datanya.`;
 export async function POST(req: Request) {
   try {
-    const { messages, model = "deepseek/deepseek-r1-0528:free" } = await req.json();
-    const apiKey = process.env.DEEPSEEK_API_KEY
+    const { messages, model = "deepseek/deepseek-r1-0528:free" } =
+      await req.json();
+    const apiKey = process.env.DEEPSEEK_API_KEY;
     if (!apiKey) {
       return new Response("API key is required", { status: 400 });
     }
@@ -43,7 +44,10 @@ export async function POST(req: Request) {
     });
     return result.toDataStreamResponse();
   } catch (error) {
-    console.error("Chat API error:", error);
+    console.error(
+      "Chat API error:",
+      error instanceof Error ? error.message : error
+    );
     return new Response("Internal server error", { status: 500 });
   }
 }
