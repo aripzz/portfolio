@@ -28,9 +28,7 @@ export default function Hero() {
             </h1>
 
             <p className="text-base sm:text-lg text-[#EEEEEE]/70 mb-6 max-w-2xl leading-relaxed">
-                Saya membantu perniagaan dan tim IT mengubah idea menjadi produk digital yang berdampak — dari prototaip cepat hingga
-                produksi skala besar. Spesialis dalam React, Next.js, Node.js, dan TypeScript dengan fokus pada performa, pengalaman pengguna,
-                dan kode yang mudah dipelihara.
+                Full‑Stack Developer dengan pengalaman lebih dari 4 tahun — membangun dan maintenance aplikasi berkinerja tinggi menggunakan Golang, PHP (Laravel, CodeIgniter, Yii), Express.js, dan TypeScript. Terampil dalam pipeline CI/CD, arsitektur berbasis pesan dengan RabbitMQ, serta integrasi dan kustomisasi WordPress. Fokus pada performa, skalabilitas, dan kode yang mudah dipelihara untuk solusi produksi yang dapat scaleup.
             </p>
 
             <div className="flex flex-col sm:flex-row justify-center md:justify-start gap-3 sm:gap-4 mb-6">

@@ -7,41 +7,8 @@ import TimelineSection from "@/components/TimelineSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ContactSection from "@/components/ContactSection";
 import Lightbox from "@/components/Lightbox";
+import { DottedGlowBackground } from "@/components/ui/dotted-glow-background";
 import type { Project } from "@/types/project";
-
-const projects: Project[] = [
-	{
-		id: "1",
-		title: "Fintech Dashboard",
-		description:
-			"Meningkatkan kecekapan pemantauan data sebanyak 40% untuk pasukan operasi.",
-		image: "/images/fintech.jpg",
-		tech: "React, Tailwind CSS, Recharts",
-	},
-	{
-		id: "2",
-		title: "Mobile E-Commerce App",
-		description:
-			"Reka bentuk mobile-first untuk pengalaman membeli-belah yang lancar.",
-		image: "/images/shopping.jpg",
-		tech: "Flutter & Firebase",
-	},
-	{
-		id: "3",
-		title: "Creative Agency Website",
-		description: "Portfolio interaktif untuk agensi kreatif.",
-		image: "/images/agency.jpg",
-		tech: "GSAP & Three.js",
-	},
-	{
-		id: "4",
-		title: "Data Visualization Tool",
-		description:
-			"Menukar data kompleks menjadi wawasan visual yang mudah difahami.",
-		image: "/images/analytics.jpg",
-		tech: "D3.js & Python",
-	},
-];
 
 export default function HomePage() {
 	const [lightboxOpen, setLightboxOpen] = useState(false);
@@ -77,13 +44,28 @@ export default function HomePage() {
 	return (
 		<main className="bg-utama text-[#EEEEEE] min-h-screen">
 			<Navbar />
+      <div className="fixed inset-0 -z-10 pointer-events-none">
+        <DottedGlowBackground
+          className="w-full h-full mask-radial-to-90% mask-radial-at-center"
+          opacity={0.5}
+          gap={10}
+          radius={1.6}
+          colorLightVar="--color-neutral-500"
+          glowColorLightVar="--color-neutral-600"
+          colorDarkVar="--color-neutral-500"
+          glowColorDarkVar="--color-sky-800"
+          backgroundOpacity={0}
+          speedMin={0.3}
+          speedMax={1.6}
+          speedScale={1}
+        />
+      </div>
 			<div className="pt-24">
 				<Hero />
 				<TimelineSection />
-				<ProjectsSection projects={projects} onOpen={openLightbox} />
+				<ProjectsSection onOpen={openLightbox} />
 				<ContactSection />
 			</div>
-
 			{lightboxOpen && active && (
 				<Lightbox project={active} onClose={closeLightbox} />
 			)}
