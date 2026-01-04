@@ -1,155 +1,120 @@
 "use client";
-import React, { useState, useEffect } from "react";
-import { MdLightMode, MdDarkMode } from "react-icons/md";
-import { IoHomeOutline } from "react-icons/io5";
-import { FaUserAlt } from "react-icons/fa";
-import { MdOutlineWorkOutline } from "react-icons/md";
-import { BsStars } from "react-icons/bs";
-import { CiPhone } from "react-icons/ci";
-import { motion } from "framer-motion";
-import { useSideBar } from "../context/sidebarContext";
-import { useTheme } from "next-themes";
-const menuItems = [
-  {
-    id: "home",
-    icons: <IoHomeOutline size={30} />,
-    label: "Home",
-  },
-  {
-    id: "about",
-    icons: <FaUserAlt size={30} />,
-    label: "About",
-  },
-  {
-    id: "project",
-    icons: <MdOutlineWorkOutline size={30} />,
-    label: "Project",
-  },
-  {
-    id: "experience",
-    icons: <BsStars size={30} />,
-    label: "Experience",
-  },
-  {
-    id: "contact",
-    icons: <CiPhone size={30} />,
-    label: "Contact",
-  },
-];
+
+import { useState } from "react";
+
 export default function Navbar() {
-  const [mounted, setMounted] = useState(false);
-  const { theme, setTheme } = useTheme();
-  const { isOpen, toggle } = useSideBar();
-  const [activeSection, setActiveSection] = useState<string | null>("home");
-  const handleScrollTo = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-      setActiveSection(id);
-    }
+  const [open, setOpen] = useState(false);
+
+  const handleNav = (e: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    e.preventDefault();
+    setOpen(false);
+    const el = document.getElementById(id);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
   };
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+
   return (
-    <nav
-      className={`flex flex-col fixed top-0 left-0 min-h-screen shadow-md p-2 duration-300 z-50 bg-blue-800 dark:bg-gray-900 text-white ${
-        isOpen && "hidden"
-      }`}
-    >
-      <div className=" px-3 py-2 h-20 flex items-center">
-        <button className="text-white p-2 rounded-md hover:bg-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500" onClick={() => toggle(!isOpen)}>
-          <svg
-            className="w-8 h-8"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-            xmlns="http://www.w3.org/2000/svg"
+    <nav className="fixed top-0 w-full z-50 glass-effect">
+      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+        <div className="text-xl font-bold tracking-tighter text-[#EEEEEE]">
+          PORTFOLIO<span className="text-[#00ADB5]">.</span>
+        </div>
+
+        <div className="space-x-8 hidden md:flex text-sm font-medium text-[#EEEEEE]/70">
+          <a
+            href="#proyek"
+            onClick={(e) => handleNav(e, "proyek")}
+            className="hover:text-[#00ADB5] transition"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16M4 18h16"
-            ></path>
-          </svg>
-        </button>
-        <p
-          className={`${
-            !isOpen && "w-0 translate-x-24"
-          } text-white duration-500 overflow-hidden`}
-        >
-          Arief Dev
-        </p>
-      </div>
-      <ul className="flex-1">
-        {menuItems.map((item, index) => {
-          return (
-            <motion.li
-              key={index}
-              className={`px-8 py-2 my-2 rounded-md duration-300 cursor-pointer flex gap-2 items-center relative group hover:bg-blue-800 ${
-                activeSection == item.id && "bg-blue-800"
-              }`}
-              onClick={() => handleScrollTo(item.id)}
-              whileTap={{ scale: 0.95 }}
-              whileHover={{ x: 5 }}
+            Proyek
+          </a>
+          <a
+            href="#pengalaman"
+            onClick={(e) => handleNav(e, "pengalaman")}
+            className="hover:text-[#00ADB5] transition"
+          >
+            Pengalaman
+          </a>
+          <a
+            href="#about"
+            onClick={(e) => handleNav(e, "about")}
+            className="hover:text-[#00ADB5] transition"
+          >
+            Tentang
+          </a>
+          <a
+            href="#contact"
+            onClick={(e) => handleNav(e, "contact")}
+            className="hover:text-[#00ADB5] transition"
+          >
+            Kontak
+          </a>
+        </div>
+
+        <div className="flex items-center gap-3">
+          <button className="bg-[#00ADB5] text-utama px-6 py-2 rounded-md text-sm font-bold hover:bg-opacity-90 transition hidden md:inline-block">
+            Hubungi Saya
+          </button>
+
+          <button
+            aria-label="Toggle menu"
+            onClick={() => setOpen((v) => !v)}
+            className="md:hidden p-2 rounded-md text-[#EEEEEE]/90 hover:bg-white/10"
+          >
+            <svg
+              className="w-6 h-6"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
             >
-              <div>{item.icons}</div>
-              <p
-                className={`${
-                  !isOpen && "w-0 translate-x-24"
-                } duration-500 overflow-hidden`}
-              >
-                {item.label}
-              </p>
-              <p
-                className={`${
-                  isOpen && "hidden"
-                } absolute left-32 shadow-md rounded-md
-                     w-0 p-0 text-black z-10 bg-white duration-100 overflow-hidden group-hover:w-fit group-hover:p-2 group-hover:left-16
-                    `}
-              >
-                {item.label}
-              </p>
-            </motion.li>
-          );
-        })}
-      </ul>
-      <div className="px-3 py-2 mt-auto">
-        {" "}
-        {/* mt-auto akan mendorong tombol ke bagian bawah */}
-        <motion.li
-          className="px-3 py-2 my-2 rounded-md duration-300 cursor-pointer flex gap-2 items-center relative group hover:bg-blue-800"
-          onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-          whileTap={{ scale: 0.95 }}
-          whileHover={{ x: 5 }}
-        >
-          {mounted && // Conditionally render the icons only on the client
-            (theme === "dark" ? (
-              <MdDarkMode size={24} />
-            ) : (
-              <MdLightMode size={24} />
-            ))}
-          <p
-            className={`${
-              !isOpen && "w-0 translate-x-24"
-            } duration-500 overflow-hidden`}
-            suppressHydrationWarning={true}
-          >
-            {theme === "dark" ? "Dark Mode" : "Light Mode"}
-          </p>
-          <p
-            className={`${
-              isOpen && "hidden"
-            } absolute left-32 shadow-md rounded-md
-                         w-0 p-0 text-black z-10 bg-white duration-100 overflow-hidden group-hover:w-fit group-hover:p-2 group-hover:left-16
-                        `}
-            suppressHydrationWarning={true}
-          >
-            {theme === "dark" ? "Dark Mode" : "Light Mode"}
-          </p>
-        </motion.li>
+              <path
+                d={
+                  open
+                    ? "M6 18L18 6M6 6l12 12"
+                    : "M4 6h16M4 12h16M4 18h16"
+                }
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
+
+      {open && (
+        <div className="md:hidden bg-utama/90">
+          <div className="px-6 pt-4 pb-6 space-y-3">
+            <a
+              href="#proyek"
+              onClick={(e) => handleNav(e, "proyek")}
+              className="block text-[#EEEEEE]"
+            >
+              Proyek
+            </a>
+            <a
+              href="#pengalaman"
+              onClick={(e) => handleNav(e, "pengalaman")}
+              className="block text-[#EEEEEE]"
+            >
+              Pengalaman
+            </a>
+            <a
+              href="#about"
+              onClick={(e) => handleNav(e, "about")}
+              className="block text-[#EEEEEE]"
+            >
+              Tentang
+            </a>
+            <a
+              href="#contact"
+              onClick={(e) => handleNav(e, "contact")}
+              className="block text-[#EEEEEE]"
+            >
+              Kontak
+            </a>
+          </div>
+        </div>
+      )}
     </nav>
   );
 }

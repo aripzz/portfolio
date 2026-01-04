@@ -1,8 +1,6 @@
 const config = {
   plugins: {
-    '@tailwindcss/postcss': {
-      darkMode: 'class',
-    },
+    '@tailwindcss/postcss': {},
     autoprefixer: {},
   },
 };

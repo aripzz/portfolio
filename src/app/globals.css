@@ -1,27 +1,35 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+:root {
+  --utama: #222831;
+  --sekunder: #393E46;
+  --aksen: #00ADB5;
+  --terang: #EEEEEE;
+}
+
+html, body { height: 100%; }
+
+body { background: var(--utama); color: var(--terang); -webkit-font-smoothing: antialiased; }
+
+.glass-effect {
+  background: rgba(34, 40, 49, 0.9);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(238, 238, 238, 0.06);
+}
+
+.project-card:hover .project-image { transform: scale(1.05); }
+
+/* Custom scrollbar */
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: var(--utama); }
+::-webkit-scrollbar-thumb { background: var(--sekunder); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: var(--aksen); }
 
 @keyframes bounce {
-  0%, 100% {
-    transform: translateY(-25%);
-    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
-  }
-  50% {
-    transform: translateY(0);
-    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
-  }
+  0%, 100% { transform: translateY(-25%); animation-timing-function: cubic-bezier(0.8, 0, 1, 1); }
+  50% { transform: translateY(0); animation-timing-function: cubic-bezier(0, 0, 0.2, 1); }
 }
 
-/* Terapkan animasi bounce dengan delay */
-.animate-bounce {
-  animation: bounce 1s infinite;
-}
-
-.animate-bounce-200 {
-  animation: bounce 1s infinite 200ms; /* Delay 200ms */
-}
-
-.animate-bounce-400 {
-  animation: bounce 1s infinite 400ms; /* Delay 400ms */
-}
+.animate-bounce { animation: bounce 1s infinite; }
+.animate-bounce-200 { animation: bounce 1s infinite 200ms; }
+.animate-bounce-400 { animation: bounce 1s infinite 400ms; }
