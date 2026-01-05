@@ -87,7 +87,7 @@ export default function ProjectsSection({
 							className={`px-3 py-1 rounded text-xs font-bold uppercase tracking-wider border transition-colors duration-200 ${
 								activeTech === tech
 									? "bg-[#00ADB5] text-white border-[#00ADB5]"
-									: "bg-sekunder text-[#00ADB5] border-[#00ADB5]/20"
+									: "bg-[#393E46] text-[#00ADB5] border-[#00ADB5]/20"
 							}`}
 							onClick={() =>
 								setActiveTech(activeTech === tech ? null : tech)

@@ -103,25 +103,25 @@ function TimelineCard({ event }: { event: TimelineEvent }) {
         <div className="p-4 bg-white/3 rounded-xl border border-white/5 shadow-sm">
             <header className="flex items-start justify-between gap-3">
                 <div>
-                    <h3 className="text-lg sm:text-xl font-semibold text-terang" id={`${event.id}-title`}>
+                    <h3 className="text-lg sm:text-xl font-semibold text-[#EEEEEE]" id={`${event.id}-title`}>
                         {event.title}
                     </h3>
-                    {event.org && <p className="text-sm text-aksen font-medium">{event.org}</p>}
+                    {event.org && <p className="text-sm text-[#00ADB5] font-medium">{event.org}</p>}
                 </div>
                 {event.period && (
-                    <time className="text-xs text-terang/60 whitespace-nowrap" dateTime={event.period}>
+                    <time className="text-xs text-[#EEEEEE]/60 whitespace-nowrap" dateTime={event.period}>
                         {event.period}
                     </time>
                 )}
             </header>
 
-            <p className="mt-3 text-sm text-terang/80 leading-relaxed">{event.description}</p>
+            <p className="mt-3 text-sm text-[#EEEEEE]/80 leading-relaxed">{event.description}</p>
 
             {event.items && (
-                <ul className="mt-3 space-y-2 list-inside text-sm text-terang/70">
+                <ul className="mt-3 space-y-2 list-inside text-sm text-[#EEEEEE]/70">
                     {event.items.map((it, i) => (
                         <li key={i} className="flex items-start gap-2">
-                            <span className="mt-0.5 w-2 h-2 bg-aksen rounded-full flex-shrink-0" />
+                            <span className="mt-0.5 w-2 h-2 bg-[#00ADB5] rounded-full flex-shrink-0" />
                             <span>{it}</span>
                         </li>
                     ))}
@@ -147,7 +147,7 @@ function MobileTimelineItem({ event }: { event: TimelineEvent }) {
         <article className="block md:hidden" aria-labelledby={`${event.id}-title`}>
             <div className="flex items-start gap-3">
                 <div className="flex flex-col items-center">
-                    <div className="w-3.5 h-3.5 rounded-full bg-aksen shadow-[0_0_12px_rgba(0,173,181,0.35)] mt-2" />
+                    <div className="w-3.5 h-3.5 rounded-full bg-[#00ADB5] shadow-[0_0_12px_rgba(0,173,181,0.35)] mt-2" />
                     <div className="w-px bg-white/8 flex-1 h-full mt-2" />
                 </div>
 
@@ -203,11 +203,11 @@ export default function TimelineSection(): React.ReactElement {
     return (
         <section id="pengalaman" className="py-12 px-4">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="bg-sekunder/30 rounded-3xl p-6 sm:p-10">
-                    <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-2 text-terang">
+                <div className="bg-[#393E46]/30 rounded-3xl p-6 sm:p-10">
+                    <h2 className="text-2xl sm:text-3xl font-extrabold text-center mb-2 text-[#EEEEEE]">
                         Riwayat Karir & Pendidikan
                     </h2>
-                    <p className="text-center text-terang/60 max-w-3xl mx-auto mb-8">
+                    <p className="text-center text-[#EEEEEE]/60 max-w-3xl mx-auto mb-8">
                         Ringkasan pengalaman kerja, proyek penting, dan pendidikan.
                     </p>
 

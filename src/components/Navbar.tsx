@@ -51,7 +51,7 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button className="bg-[#00ADB5] text-utama px-6 py-2 rounded-md text-sm font-bold hover:bg-opacity-90 transition hidden md:inline-block">
+          <button className="bg-[#00ADB5] text-[#222831] px-6 py-2 rounded-md text-sm font-bold hover:bg-opacity-90 transition hidden md:inline-block">
             Hubungi Saya
           </button>
 
@@ -82,7 +82,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <div className="md:hidden bg-utama/90">
+        <div className="md:hidden bg-[#222831]/90">
           <div className="px-6 pt-4 pb-6 space-y-3">
             <a
               href="#proyek"
