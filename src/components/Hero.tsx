@@ -8,7 +8,7 @@ export default function Hero() {
                 className="w-36 h-36 sm:w-48 sm:h-56 md:w-64 md:h-64 rounded-xl bg-gradient-to-br from-[#00ADB5]/15 to-[#39424e]/6 border border-[#EEEEEE]/8 flex items-center justify-center shadow-md"
             >
                 <Image
-                src="/profile.jpg"
+                src="./profile.jpg"
                 alt="Arief Nur Abdullah — profile photo"
                 className="w-full h-full object-cover rounded-xl"
                 loading="eager"
