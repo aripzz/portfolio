@@ -8,7 +8,7 @@ export default function Hero() {
             >
                 {/* profile photo - visible on small screens above the text, on md+ it moves to the right */}
                 <img
-                src="/profile.jpg"
+                src="./profile.jpg"
                 alt="Arief Nur Abdullah — profile photo"
                 className="w-full h-full object-cover rounded-xl"
                 loading="eager"

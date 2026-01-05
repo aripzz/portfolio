@@ -8,7 +8,7 @@ const defaultProjects: Project[] = [
 		title: "Mamalyfe App",
 		description:
 			"Aplikasi parenting modern untuk komunitas Mamalyfe, fitur utama: forum, artikel, dan pelacakan tumbuh kembang anak.",
-		image: "/mamalyfe-app.webp",
+		image: "./mamalyfe-app.webp",
 		tech: "React Native, Node.js, MongoDB",
 		link: "#",
 	},
@@ -17,7 +17,7 @@ const defaultProjects: Project[] = [
 		title: "Mamalyfe Dashboard",
 		description:
 			"Dashboard admin untuk monitoring, manajemen konten, dan analitik platform Mamalyfe.",
-		image: "/mamalyfe-dashboard.png",
+		image: "./mamalyfe-dashboard.png",
 		tech: "Next.js, Express, Chart.js",
 		link: "#",
 	},
@@ -26,7 +26,7 @@ const defaultProjects: Project[] = [
 		title: "ACI App",
 		description:
 			"Aplikasi internal PT AKU CINTA INDONESIA untuk manajemen operasional dan pelaporan.",
-		image: "/aci-app.webp",
+		image: "./aci-app.webp",
 		tech: "Flutter, Firebase, REST API",
 		link: "#",
 	},
@@ -35,7 +35,7 @@ const defaultProjects: Project[] = [
 		title: "Audiolyfe Wordpress",
 		description:
 			"Website company profile dan blog untuk Audiolyfe, dibangun dengan WordPress custom theme.",
-		image: "/audiolyfe-wordpress.png",
+		image: "./audiolyfe-wordpress.png",
 		tech: "WordPress, PHP, Custom Theme",
 		link: "#",
 	},
