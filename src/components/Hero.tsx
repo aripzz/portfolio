@@ -1,18 +1,20 @@
+import Image from "next/image";
 export default function Hero() {
   return (
-    <header className="pt-20 sm:pt-28 lg:pt-40 pb-12 px-6 max-w-7xl mx-auto">
+    <header id="about" className="pt-20 sm:pt-28 lg:pt-40 pb-12 px-6 max-w-7xl mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
             <div className="flex justify-center md:justify-end md:order-2 order-1">
             <div
                 className="w-36 h-36 sm:w-48 sm:h-56 md:w-64 md:h-64 rounded-xl bg-gradient-to-br from-[#00ADB5]/15 to-[#39424e]/6 border border-[#EEEEEE]/8 flex items-center justify-center shadow-md"
             >
-                {/* profile photo - visible on small screens above the text, on md+ it moves to the right */}
-                <img
-                src="./profile.jpg"
+                <Image
+                src="/profile.jpg"
                 alt="Arief Nur Abdullah — profile photo"
                 className="w-full h-full object-cover rounded-xl"
                 loading="eager"
                 decoding="async"
+                width={256}
+                height={256}
                 />
             </div>
             </div>

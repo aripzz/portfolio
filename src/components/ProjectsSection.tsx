@@ -2,6 +2,7 @@ import ProjectCard from "./ProjectCard";
 import type { Project } from "../types/project";
 import { useState } from "react";
 
+
 const defaultProjects: Project[] = [
 	{
 		id: "1",
@@ -73,7 +74,7 @@ export default function ProjectsSection({
 		<section id="proyek" className="max-w-7xl mx-auto px-6 py-12">
 			<div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
 				<div>
-					<h2 className="text-3xl font-bold mb-2">Projek Pilihan</h2>
+					<h2 className="text-3xl font-bold mb-2 mt-6">Projek</h2>
 					<p className="text-[#EEEEEE]/70 italic font-light">
 						Pilih teknologi di bawah untuk memfilter projek. Klik gambar untuk
 						melihat resolusi penuh dan detail teknis.
