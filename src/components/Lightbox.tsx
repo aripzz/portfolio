@@ -19,8 +19,16 @@ export default function Lightbox({ project, onClose }: { project: Project; onClo
             <h2 className="text-3xl font-bold mb-4 text-[#00ADB5]">{project.title}</h2>
             <p className="text-[#222831] leading-relaxed mb-8">{project.description}</p>
             <div className="flex flex-col gap-3">
-              <a href="#" className="w-full bg-[#00ADB5] hover:bg-opacity-90 text-[#222831] py-3 rounded-md font-bold transition text-center">Live Demo</a>
-              <button onClick={() => {}} className="w-full border border-[#393E46] hover:bg-[#393E46] text-[#222831] py-3 rounded-md font-bold transition text-sm">Lihat Kajian Kes</button>
+              {project.link && project.link !== "#" && (
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-[#00ADB5] hover:bg-opacity-90 text-[#222831] py-3 rounded-md font-bold transition text-center"
+                >
+                  Live Demo
+                </a>
+              )}
             </div>
           </div>
         </div>
