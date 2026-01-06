@@ -108,6 +108,7 @@ export default function ProjectsSection({
 					))}
 				</div>
 			</div>
+			{/* Pagination + "Show more 6" UX */}
 			<div className="grid grid-cols-1 md:grid-cols-12 gap-6">
 				{list.length === 0 ? (
 					<div className="col-span-12 text-center text-[#EEEEEE]/70 py-12">
@@ -115,16 +116,93 @@ export default function ProjectsSection({
 					</div>
 				) : (
 					<>
-						<div className="md:col-span-8">
-							{list[0] && <ProjectCard project={list[0]} onOpen={onOpen} />}
-						</div>
-						<div className="md:col-span-4 flex flex-col gap-6">
-							{list[1] && <ProjectCard project={list[1]} onOpen={onOpen} />}
-							{list[2] && <ProjectCard project={list[2]} onOpen={onOpen} />}
-						</div>
-						<div className="md:col-span-8">
-							{list[3] && <ProjectCard project={list[3]} onOpen={onOpen} />}
-						</div>
+						{/*
+							Keep a simple paginated UX: 6 projects per page.
+							Layout pattern: index % 3 === 0 -> large (md:col-span-8), others -> small (md:col-span-4)
+						*/}
+						{(() => {
+							const perPage = 6;
+							const [page, setPage] = useState<number>(1);
+							const totalPages = Math.max(1, Math.ceil(list.length / perPage));
+							const visible = list.slice((page - 1) * perPage, page * perPage);
+
+							return (
+								<>
+									{/* Projects grid for the current page */}
+									<div className="md:col-span-12 grid grid-cols-1 md:grid-cols-12 gap-6">
+										{visible.map((project, idx) => {
+											// pattern: 8 / 4 / 4 / 8 / 4 / 4 ...
+											const spanClass = idx % 3 === 0 ? "md:col-span-8" : "md:col-span-4";
+											return (
+												<div key={project.id} className={`${spanClass}`}>
+													<ProjectCard project={project} onOpen={onOpen} />
+												</div>
+											);
+										})}
+									</div>
+
+									{/* Pagination controls */}
+									<div className="md:col-span-12 flex flex-col md:flex-row items-center justify-between gap-4 mt-6">
+										{/* Page buttons */}
+										<div className="flex items-center gap-2 flex-wrap">
+											<button
+												type="button"
+												className="px-3 py-1 rounded border bg-[#393E46] text-[#00ADB5] disabled:opacity-40"
+												onClick={() => setPage((p) => Math.max(1, p - 1))}
+												disabled={page === 1}
+											>
+												Prev
+											</button>
+
+											{Array.from({ length: totalPages }).map((_, i) => {
+												const pageNum = i + 1;
+												const active = pageNum === page;
+												return (
+													<button
+														key={pageNum}
+														type="button"
+														className={`px-3 py-1 rounded text-xs font-bold uppercase tracking-wider border transition-colors duration-200 ${
+															active
+																? "bg-[#00ADB5] text-white border-[#00ADB5]"
+																: "bg-[#393E46] text-[#00ADB5] border-[#00ADB5]/20"
+														}`}
+														onClick={() => setPage(pageNum)}
+													>
+														{pageNum}
+													</button>
+												);
+											})}
+
+											<button
+												type="button"
+												className="px-3 py-1 rounded border bg-[#393E46] text-[#00ADB5] disabled:opacity-40"
+												onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+												disabled={page === totalPages}
+											>
+												Next
+											</button>
+										</div>
+
+										{/* Show more (next 6) quick action */}
+										<div className="flex gap-2">
+											{page < totalPages ? (
+												<button
+													type="button"
+													onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+													className="px-4 py-2 rounded bg-[#00ADB5] text-black font-semibold shadow-md hover:brightness-95 transition"
+												>
+													Show more (6)
+												</button>
+											) : (
+												<span className="text-sm text-[#EEEEEE]/70 italic">
+													You have reached the last page.
+												</span>
+											)}
+										</div>
+									</div>
+								</>
+							);
+						})()}
 					</>
 				)}
 			</div>
