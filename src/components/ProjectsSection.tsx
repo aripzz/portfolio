@@ -10,7 +10,7 @@ const defaultProjects: Project[] = [
 		description:
 			"Aplikasi parenting modern untuk komunitas Mamalyfe, fitur utama: forum, artikel, dan pelacakan tumbuh kembang anak.",
 		image: "./mamalyfe-app.webp",
-		tech: "React Native, Node.js, MongoDB",
+		tech: "Flutter, Golang, Node.js, Postgree",
 		link: "#",
 	},
 	{
@@ -19,8 +19,8 @@ const defaultProjects: Project[] = [
 		description:
 			"Dashboard admin untuk monitoring, manajemen konten, dan analitik platform Mamalyfe.",
 		image: "./mamalyfe-dashboard.png",
-		tech: "Next.js, Express, Chart.js",
-		link: "#",
+		tech: "react.js, Golang, Express, Chart.js, Postgree",
+		link: "https://webadmin.mamalyfe.id/login",
 	},
 	{
 		id: "3",
@@ -29,7 +29,7 @@ const defaultProjects: Project[] = [
 			"Aplikasi internal PT AKU CINTA INDONESIA untuk manajemen operasional dan pelaporan.",
 		image: "./aci-app.webp",
 		tech: "Flutter, Firebase, REST API",
-		link: "#",
+		link: "https://play.google.com/store/apps/details?id=com.aci.viuit&hl=en",
 	},
 	{
 		id: "4",
@@ -38,6 +38,15 @@ const defaultProjects: Project[] = [
 			"Website company profile dan blog untuk Audiolyfe, dibangun dengan WordPress custom theme.",
 		image: "./audiolyfe-wordpress.png",
 		tech: "WordPress, PHP, Custom Theme",
+		link: "https://audiolyfe.org",
+	},
+	{
+		id: "5",
+		title: "CRM ",
+		description:
+			"Aplikasi CRM untuk manajemen hubungan pelanggan dan otomatisasi penjualan.",
+		image: "./crm-app.png",
+		tech: "NextJS, Golang, Custom Theme",
 		link: "#",
 	},
 ];
