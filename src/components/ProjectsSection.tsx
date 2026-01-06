@@ -50,6 +50,15 @@ const defaultProjects: Project[] = [
 		tech: "NextJS, Golang, Custom Theme",
 		link: "#",
 	},
+	{
+		id: "6",
+		title: "ERP System - Win Printing Sby",
+		description:
+			"Aplikasi ERP untuk manajemen sumber daya perusahaan, inventory, omnichannel marketplace, monitoring order, dan laporan keuangan.",
+		image: "./ERP-WINPRINTING.png",
+		tech: "Laravel, Golang, Express.Js, Tailwind CSS, RabitMQ, Postgree",
+		link: "#",
+	},
 ];
 
 const techStacks = Array.from(
