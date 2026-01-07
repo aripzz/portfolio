@@ -126,23 +126,20 @@ export default function ContactSection(): React.ReactElement {
 
         setLoading(true);
         try {
-            const res = await fetch("/api/contact", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify(form),
-            });
+            // Build WhatsApp message from form fields
+            const message = `Nama: ${form.name}\nEmail: ${form.email}\nPesan: ${form.message}`;
+            const encoded = encodeURIComponent(message);
+            const waUrl = `https://wa.me/6287723668279?text=${encoded}`;
 
-            if (!res.ok) {
-                const data = await res.json().catch(() => ({}));
-                throw new Error(data?.error || "Gagal mengirim pesan");
-            }
+            // Open WhatsApp chat in a new tab/window
+            window.open(waUrl, "_blank", "noopener,noreferrer");
 
-            setSuccess("Pesan berhasil dikirim. Terima kasih!");
+            setSuccess("Mengalihkan ke WhatsApp...");
             setForm({ name: "", email: "", message: "" });
             setFieldErrors({});
         } catch (err: unknown) {
             const message = err instanceof Error ? err.message : String(err);
-            setError(message || "Terjadi kesalahan saat mengirim.");
+            setError(message || "Terjadi kesalahan saat mengalihkan ke WhatsApp.");
         } finally {
             setLoading(false);
         }

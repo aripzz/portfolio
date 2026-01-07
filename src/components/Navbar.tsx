@@ -51,9 +51,15 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-3">
-          <button className="bg-[#00ADB5] text-[#222831] px-6 py-2 rounded-md text-sm font-bold hover:bg-opacity-90 transition hidden md:inline-block">
+          <a
+            href="https://wa.me/6287723668279"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Hubungi saya via WhatsApp"
+            className="bg-[#00ADB5] text-[#222831] px-6 py-2 rounded-md text-sm font-bold hover:bg-opacity-90 transition hidden md:inline-block"
+          >
             Hubungi Saya
-          </button>
+          </a>
 
           <button
             aria-label="Toggle menu"
