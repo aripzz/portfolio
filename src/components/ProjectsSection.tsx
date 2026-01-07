@@ -1,7 +1,6 @@
 "use client";
-import ProjectCard from "./ProjectCard";
 import type { Project } from "../types/project";
-import { useState, useEffect } from "react";
+import Image from "next/image";
 
 
 const defaultProjects: Project[] = [
@@ -61,168 +60,85 @@ const defaultProjects: Project[] = [
 	},
 ];
 
-const techStacks = Array.from(
-	new Set(
-		defaultProjects
-			.flatMap((p) =>
-				typeof p.tech === "string" ? p.tech.split(/,|•|\s*\/\s*|\s*\|\s*/) : p.tech
-			)
-			.map((t) => t.trim())
-			.filter(Boolean)
-	)
-);
-
-export default function ProjectsSection({
-	onOpen,
-}: {
-	onOpen?: (p: Project) => void;
-}) {
-	const [activeTech, setActiveTech] = useState<string | null>(null);
-	// Move page state to component top level to satisfy hook rules
-	const [page, setPage] = useState<number>(1);
-
-	const list = activeTech
-		? defaultProjects.filter((p) =>
-				(typeof p.tech === "string"
-					? p.tech.split(/,|•|\s*\/\s*|\s*\|\s*/)
-					: p.tech
-				)
-					.map((t) => t.trim())
-					.includes(activeTech)
-		  )
-		: defaultProjects;
-
-	const perPage = 6;
-	const totalPages = Math.max(1, Math.ceil(list.length / perPage));
-
-	// If list changes (e.g. filter applied) and current page is out of range, reset to first page
-	useEffect(() => {
-		if (page > totalPages) {
-			setPage(1);
-		}
-		// intentionally depend on list length / activeTech via totalPages
-	}, [list.length, page, totalPages]);
-
-	const visible = list.slice((page - 1) * perPage, page * perPage);
-
-	return (
-		<section id="proyek" className="max-w-7xl mx-auto px-6 py-12">
-			<div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-4">
-				<div>
-					<h2 className="text-3xl font-bold mb-2 mt-6">Projek</h2>
-					<p className="text-[#EEEEEE]/70 italic font-light">
-						Pilih teknologi di bawah untuk memfilter projek. Klik gambar untuk
-						melihat resolusi penuh dan detail teknis.
-					</p>
-				</div>
-				<div className="flex gap-2 flex-wrap">
-					{techStacks.map((tech) => (
-						<button
-							key={tech}
-							className={`px-3 py-1 rounded text-xs font-bold uppercase tracking-wider border transition-colors duration-200 ${
-								activeTech === tech
-									? "bg-[#00ADB5] text-white border-[#00ADB5]"
-									: "bg-[#393E46] text-[#00ADB5] border-[#00ADB5]/20"
-							}`}
-							onClick={() =>
-								setActiveTech(activeTech === tech ? null : tech)
-							}
-							type="button"
-						>
-							{tech}
-						</button>
-					))}
-				</div>
-			</div>
-			{/* Pagination + "Show more 6" UX */}
-			<div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-				{list.length === 0 ? (
-					<div className="col-span-12 text-center text-[#EEEEEE]/70 py-12">
-						Tidak ada projek dengan teknologi tersebut.
-					</div>
-				) : (
-					<>
-						{/*
-							Keep a simple paginated UX: 6 projects per page.
-							Layout pattern: index % 3 === 0 -> large (md:col-span-8), others -> small (md:col-span-4)
-						*/}
-						<>
-							{/* Projects grid for the current page */}
-							<div className="md:col-span-12 grid grid-cols-1 md:grid-cols-12 gap-6">
-								{visible.map((project, idx) => {
-									// pattern: 8 / 4 / 4 / 8 / 4 / 4 ...
-									const spanClass = idx % 3 === 0 ? "md:col-span-8" : "md:col-span-4";
-									return (
-										<div key={project.id} className={`${spanClass}`}>
-											<ProjectCard project={project} onOpen={onOpen} />
-										</div>
-									);
-								})}
-							</div>
-
-							{/* Pagination controls */}
-							<div className="md:col-span-12 flex flex-col md:flex-row items-center justify-between gap-4 mt-6">
-								{/* Page buttons */}
-								<div className="flex items-center gap-2 flex-wrap">
-									<button
-										type="button"
-										className="px-3 py-1 rounded border bg-[#393E46] text-[#00ADB5] disabled:opacity-40"
-										onClick={() => setPage((p) => Math.max(1, p - 1))}
-										disabled={page === 1}
-									>
-										Prev
-									</button>
-
-									{Array.from({ length: totalPages }).map((_, i) => {
-										const pageNum = i + 1;
-										const active = pageNum === page;
-										return (
-											<button
-												key={pageNum}
-												type="button"
-												className={`px-3 py-1 rounded text-xs font-bold uppercase tracking-wider border transition-colors duration-200 ${
-													active
-														? "bg-[#00ADB5] text-white border-[#00ADB5]"
-														: "bg-[#393E46] text-[#00ADB5] border-[#00ADB5]/20"
-												}`}
-												onClick={() => setPage(pageNum)}
-											>
-												{pageNum}
-											</button>
-										);
-									})}
-
-									<button
-										type="button"
-										className="px-3 py-1 rounded border bg-[#393E46] text-[#00ADB5] disabled:opacity-40"
-										onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-										disabled={page === totalPages}
-									>
-										Next
-									</button>
-								</div>
-
-								{/* Show more (next 6) quick action */}
-								<div className="flex gap-2">
-									{page < totalPages ? (
-										<button
-											type="button"
-											onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
-											className="px-4 py-2 rounded bg-[#00ADB5] text-black font-semibold shadow-md hover:brightness-95 transition"
-										>
-											Show more (6)
-										</button>
-									) : (
-										<span className="text-sm text-[#EEEEEE]/70 italic">
-											You have reached the last page.
-										</span>
-									)}
-								</div>
-							</div>
-						</>
-					</>
-				)}
-			</div>
-		</section>
-	);
+export default function ProjectsSection({ onOpen }: { onOpen?: (p: Project) => void }) {
+  return (
+    <section id="proyek" className="max-w-[1400px] mx-auto px-6 py-12">
+      <header className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16">
+        <div>
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-3 h-3 bg-[#00ADB5] animate-pulse" />
+            <span className="font-sans text-xs tracking-widest text-[#00ADB5] uppercase">ENGINEERING_PORTFOLIO_v4.0</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tighter leading-none font-sans uppercase">
+            FULL_STACK<br /><span className="text-[#00ADB5]">DEVELOPER</span>
+          </h1>
+        </div>
+      </header>
+      <main className="grid project-grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 md:gap-12">
+        {defaultProjects.map((project, idx) => {
+          // Determine aspect ratio class
+          const isMobile = /mobile|app/i.test(project.title) || /android|ios/i.test(project.description);
+          const aspectClass = isMobile ? "aspect-[9/16]" : "aspect-[16/9]";
+          // Mockup overlay label
+          const overlayLabel = isMobile
+            ? "MOBILE_OS.ISO"
+            : idx % 2 === 0
+            ? "DESKTOP_VIEW.EXE"
+            : "WEB_CORE.DLL";
+          return (
+            <div
+              key={project.id}
+              className="project-card relative bg-[#393E46] border border-[#00ADB5]/10 transition-all duration-500 cursor-pointer flex flex-col rounded-xl overflow-hidden group shadow-lg"
+              onClick={() => onOpen?.(project)}
+              tabIndex={0}
+              role="button"
+              onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && onOpen?.(project)}
+            >
+              <div className={`image-container ${aspectClass} relative overflow-hidden bg-[#1a1e24]`}>
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  width={1200}
+                  height={800}
+                  className="w-full h-full object-cover filter grayscale brightness-60 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500"
+                  style={{ transition: 'all 0.6s ease' }}
+                  priority={idx === 0}
+                />
+                <div className="mockup-overlay absolute inset-0 flex items-center justify-center bg-[radial-gradient(circle,rgba(0,173,181,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-400">
+                  <div className="border-2 border-[#00ADB5] p-4 bg-[#222831] text-[#00ADB5] text-xs font-bold font-sans uppercase">
+                    {overlayLabel}
+                  </div>
+                </div>
+              </div>
+              <div className="badge-row flex flex-wrap gap-2 px-5 py-4 bg-[#222831]">
+                {typeof project.tech === 'string'
+                  ? project.tech.split(/,|•|\//).map((t) => (
+                      <span key={t.trim()} className="tech-badge text-[10px] font-semibold text-[#00ADB5] border border-[#00ADB5] px-2 py-1 uppercase tracking-wider bg-transparent">
+                        {t.trim()}
+                      </span>
+                    ))
+                  : null}
+              </div>
+              <div className="project-details px-5 pb-5 pt-2 bg-[#222831]">
+                <h3 className="project-title font-sans font-bold text-[14px] uppercase tracking-tight">
+                  {project.title}
+                </h3>
+                <p className="text-[10px] opacity-50 mt-1">{project.description}</p>
+              </div>
+            </div>
+          );
+        })}
+      </main>
+      <footer className="mt-32 pt-10 border-t border-[#393E46] flex flex-col md:flex-row justify-between items-center text-[9px] font-sans tracking-widest text-[#EEEEEE] opacity-50">
+        <div className="mb-4 md:mb-0">
+          SYSTEM_ENCODING: UTF-8 // COLOR_RATIO: 40_30_20_10
+        </div>
+        <div className="flex gap-10">
+          <a href="#" className="hover:text-[#00ADB5] transition-colors">GitHub</a>
+          <a href="#" className="hover:text-[#00ADB5] transition-colors">LinkedIn</a>
+          <a href="#" className="hover:text-[#00ADB5] transition-colors">Terminal</a>
+        </div>
+      </footer>
+    </section>
+  );
 }
