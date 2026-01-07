@@ -129,16 +129,6 @@ export default function ProjectsSection({ onOpen }: { onOpen?: (p: Project) => v
           );
         })}
       </main>
-      <footer className="mt-32 pt-10 border-t border-[#393E46] flex flex-col md:flex-row justify-between items-center text-[9px] font-sans tracking-widest text-[#EEEEEE] opacity-50">
-        <div className="mb-4 md:mb-0">
-          SYSTEM_ENCODING: UTF-8 // COLOR_RATIO: 40_30_20_10
-        </div>
-        <div className="flex gap-10">
-          <a href="#" className="hover:text-[#00ADB5] transition-colors">GitHub</a>
-          <a href="#" className="hover:text-[#00ADB5] transition-colors">LinkedIn</a>
-          <a href="#" className="hover:text-[#00ADB5] transition-colors">Terminal</a>
-        </div>
-      </footer>
     </section>
   );
 }

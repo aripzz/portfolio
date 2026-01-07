@@ -40,7 +40,7 @@ const SocialIcons = (): React.ReactElement => (
             </svg>
         </a>
         <a
-            href="https://www.linkedin.com/in/arifn-ab/"
+            href="https://www.linkedin.com/in/ariefna"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="linkedin"
