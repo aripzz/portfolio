@@ -43,7 +43,7 @@ export default function Hero() {
                 </a>
 
                 <a
-                href="/resume.pdf"
+                href="/CV - Arief Nur Abdullah.pdf"
                 className="inline-flex items-center justify-center px-5 py-3 border border-[#EEEEEE]/10 text-[#EEEEEE] rounded-md hover:bg-[#EEEEEE]/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-[#EEEEEE] transition"
                 aria-label="Lihat CV Arief (buka di tab baru)"
                 target="_blank"
