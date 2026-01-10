@@ -54,7 +54,7 @@ const defaultProjects: Project[] = [
 		title: "ERP System - Win Printing Sby",
 		description:
 			"Aplikasi ERP untuk manajemen sumber daya perusahaan, inventory, omnichannel marketplace, monitoring order, dan laporan keuangan.",
-		image: "/ERP-WINPRINTING.png",
+		image: "./ERP-WINPRINTING.png",
 		tech: "Laravel, Golang, Express.Js, Tailwind CSS, RabitMQ, Postgree",
 		link: "#",
 	},
@@ -62,7 +62,7 @@ const defaultProjects: Project[] = [
     id: "7",
     title: "Villa Songgoriti Heritage",
     description: "villa songgoriti heritage website company profile dengan fitur reservasi online and payment getway integration.",
-    image: "/Villa Songgoriti Heritage.png",
+    image: "./Villa Songgoriti Heritage.png",
     tech: "WordPress, PHP, Custom Theme",
     link: "#",
   },
