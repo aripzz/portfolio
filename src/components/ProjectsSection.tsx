@@ -54,10 +54,18 @@ const defaultProjects: Project[] = [
 		title: "ERP System - Win Printing Sby",
 		description:
 			"Aplikasi ERP untuk manajemen sumber daya perusahaan, inventory, omnichannel marketplace, monitoring order, dan laporan keuangan.",
-		image: "./ERP-WINPRINTING.png",
+		image: "/ERP-WINPRINTING.png",
 		tech: "Laravel, Golang, Express.Js, Tailwind CSS, RabitMQ, Postgree",
 		link: "#",
 	},
+  {
+    id: "7",
+    title: "Villa Songgoriti Heritage",
+    description: "villa songgoriti heritage website company profile dengan fitur reservasi online and payment getway integration.",
+    image: "/Villa Songgoriti Heritage.png",
+    tech: "WordPress, PHP, Custom Theme",
+    link: "#",
+  },
 ];
 
 export default function ProjectsSection({ onOpen }: { onOpen?: (p: Project) => void }) {
@@ -81,10 +89,8 @@ export default function ProjectsSection({ onOpen }: { onOpen?: (p: Project) => v
           const aspectClass = isMobile ? "aspect-[9/16]" : "aspect-[16/9]";
           // Mockup overlay label
           const overlayLabel = isMobile
-            ? "MOBILE_OS.ISO"
-            : idx % 2 === 0
-            ? "DESKTOP_VIEW.EXE"
-            : "WEB_CORE.DLL";
+            ? "MOBILE"
+            : "WEBSITE";
           return (
             <div
               key={project.id}
@@ -94,22 +100,23 @@ export default function ProjectsSection({ onOpen }: { onOpen?: (p: Project) => v
               role="button"
               onKeyDown={e => (e.key === 'Enter' || e.key === ' ') && onOpen?.(project)}
             >
-              <div className={`image-container ${aspectClass} relative overflow-hidden bg-[#1a1e24]`}>
+                <div className={`image-container ${aspectClass} relative overflow-hidden bg-[#1a1e24]`}>
                 <Image
                   src={project.image}
                   alt={project.title}
                   width={1200}
                   height={800}
-                  className="w-full h-full object-cover filter grayscale brightness-60 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500"
-                  style={{ transition: 'all 0.6s ease' }}
+                  // Use object-top so the top of the image is prioritized when cropped
+                  className="w-full h-full object-cover object-top filter grayscale brightness-60 group-hover:grayscale-0 group-hover:brightness-100 group-hover:scale-105 transition-all duration-500"
+                  style={{ transition: "all 0.6s ease" }}
                   priority={idx === 0}
                 />
                 <div className="mockup-overlay absolute inset-0 flex items-center justify-center bg-[radial-gradient(circle,rgba(0,173,181,0.15)_0%,transparent_70%)] opacity-0 group-hover:opacity-100 transition-opacity duration-400">
                   <div className="border-2 border-[#00ADB5] p-4 bg-[#222831] text-[#00ADB5] text-xs font-bold font-sans uppercase">
-                    {overlayLabel}
+                  {overlayLabel}
                   </div>
                 </div>
-              </div>
+                </div>
               <div className="badge-row flex flex-wrap gap-2 px-5 py-4 bg-[#222831]">
                 {typeof project.tech === 'string'
                   ? project.tech.split(/,|•|\//).map((t) => (
