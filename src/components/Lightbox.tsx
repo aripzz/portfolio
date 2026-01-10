@@ -11,8 +11,22 @@ export default function Lightbox({ project, onClose }: { project: Project; onClo
       <button onClick={onClose} className="absolute top-6 right-6 text-[#EEEEEE] text-4xl hover:text-[#00ADB5]">&times;</button>
 
       <div className="max-w-5xl w-full flex flex-col md:flex-row gap-8 items-center">
-        <div className="w-full md:w-2/3 bg-[#393E46] rounded-xl shadow-2xl border border-[#00ADB5]/10 max-h-[80vh] overflow-y-auto">
-          <div className="p-4 flex items-start justify-center">
+        <div className="w-full md:w-2/3 bg-[#393E46] rounded-xl shadow-2xl border border-[#00ADB5]/10 max-h-[80vh] overflow-hidden auto-scroll-group">
+          {/* Inline keyframes/style to enable a smooth auto-scroll on hover.
+              The image will gently translate up/down while the user hovers the container. */}
+          <style>{`
+            .auto-scroll-group .auto-scroll-content { transform: translateY(0); }
+            .auto-scroll-group:hover .auto-scroll-content {
+              animation: autoScroll 8s linear infinite alternate;
+              /* adjust duration and 'to' translate percent to control speed & distance */
+            }
+            @keyframes autoScroll {
+              from { transform: translateY(0); }
+              to { transform: translateY(-25%); }
+            }
+          `}</style>
+
+          <div className="p-4 flex items-start justify-center auto-scroll-content">
             <Image
               src={project.image}
               alt={project.title}
