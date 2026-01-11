@@ -118,7 +118,7 @@ const defaultProjects: Project[] = [
     description:
       "Landing page demo untuk Travel: kumpulan demo interaktif (listing destinasi, pencarian, alur booking) dan contoh integrasi UI/UX.",
     image: "./travel.png",
-    tech: "NextJS, React, Tailwind CSS",
+    tech: "WordPress, PHP, Custom Theme",
     link: "https://embed-iota.vercel.app/travel",
   },
 ];
