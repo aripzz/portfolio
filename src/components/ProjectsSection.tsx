@@ -4,67 +4,113 @@ import Image from "next/image";
 
 
 const defaultProjects: Project[] = [
-	{
-		id: "1",
-		title: "Mamalyfe App",
-		description:
-			"Aplikasi parenting modern untuk komunitas Mamalyfe, fitur utama: forum, artikel, dan pelacakan tumbuh kembang anak.",
-		image: "./mamalyfe-app.webp",
-		tech: "Flutter, Golang, Node.js, Postgree",
-		link: "#",
-	},
-	{
-		id: "2",
-		title: "Mamalyfe Dashboard",
-		description:
-			"Dashboard admin untuk monitoring, manajemen konten, dan analitik platform Mamalyfe.",
-		image: "./mamalyfe-dashboard.png",
-		tech: "react.js, Golang, Express, Chart.js, Postgree",
-		link: "https://webadmin.mamalyfe.id/login",
-	},
-	{
-		id: "3",
-		title: "ACI App",
-		description:
-			"Aplikasi internal PT AKU CINTA INDONESIA untuk manajemen operasional dan pelaporan.",
-		image: "./aci-app.webp",
-		tech: "Flutter, Firebase, REST API",
-		link: "https://play.google.com/store/apps/details?id=com.aci.viuit&hl=en",
-	},
-	{
-		id: "4",
-		title: "Audiolyfe Wordpress",
-		description:
-			"Website company profile dan blog untuk Audiolyfe, dibangun dengan WordPress custom theme.",
-		image: "./audiolyfe-wordpress.png",
-		tech: "WordPress, PHP, Custom Theme",
-		link: "https://audiolyfe.org",
-	},
-	{
-		id: "5",
-		title: "CRM ",
-		description:
-			"Aplikasi CRM untuk manajemen hubungan pelanggan dan otomatisasi penjualan.",
-		image: "./crm-app.png",
-		tech: "NextJS, Golang, Custom Theme",
-		link: "#",
-	},
-	{
-		id: "6",
-		title: "ERP System - Win Printing Sby",
-		description:
-			"Aplikasi ERP untuk manajemen sumber daya perusahaan, inventory, omnichannel marketplace, monitoring order, dan laporan keuangan.",
-		image: "./ERP-WINPRINTING.png",
-		tech: "Laravel, Golang, Express.Js, Tailwind CSS, RabitMQ, Postgree",
-		link: "#",
-	},
+  {
+    id: "1",
+    title: "Mamalyfe Mobile App",
+    description:
+      "Aplikasi mobile resmi Mamalyfe untuk komunitas orang tua — forum, artikel, event, serta pelacakan tumbuh kembang anak dengan fitur interaktif.",
+    image: "./mamalyfe-app.webp",
+    tech: "Flutter, Golang, Node.js, Postgree",
+    link: "#",
+  },
+  {
+    id: "2",
+    title: "Mamalyfe Admin Dashboard",
+    description:
+      "Dashboard admin Mamalyfe untuk manajemen pengguna, konten, produk, dan analitik platform secara real-time.",
+    image: "./mamalyfe-dashboard.png",
+    tech: "react.js, Golang, Express, Chart.js, Postgree",
+    link: "https://webadmin.mamalyfe.id/login",
+  },
+  {
+    id: "3",
+    title: "ACI (Internal App)",
+    description:
+      "Aplikasi internal PT AKU CINTA INDONESIA untuk manajemen operasional, pelaporan, dan pelacakan tugas harian karyawan.",
+    image: "./aci-app.webp",
+    tech: "Flutter, Firebase, REST API",
+    link: "https://play.google.com/store/apps/details?id=com.aci.viuit&hl=en",
+  },
+  {
+    id: "4",
+    title: "Audiolyfe — Company Site",
+    description:
+      "Website company profile dan blog Audiolyfe dengan WordPress custom theme, menampilkan layanan audio, portofolio, dan artikel.",
+    image: "./audiolyfe-wordpress.png",
+    tech: "WordPress, PHP, Custom Theme",
+    link: "https://audiolyfe.org",
+  },
+  {
+    id: "5",
+    title: "CRM System",
+    description:
+      "Aplikasi CRM untuk manajemen hubungan pelanggan, pipeline penjualan, dan otomatisasi proses pemasaran & penjualan.",
+    image: "./crm-app.png",
+    tech: "NextJS, Golang, Custom Theme",
+    link: "#",
+  },
+  {
+    id: "6",
+    title: "ERP — Win Printing Surabaya",
+    description:
+      "Sistem ERP untuk Win Printing: manajemen inventory, omnichannel marketplace, monitoring order, dan laporan keuangan terpadu.",
+    image: "./ERP-WINPRINTING.png",
+    tech: "Laravel, Golang, Express.Js, Tailwind CSS, RabitMQ, Postgree",
+    link: "#",
+  },
   {
     id: "7",
     title: "Villa Songgoriti Heritage",
-    description: "villa songgoriti heritage website company profile dengan fitur reservasi online and payment getway integration.",
+    description:
+      "Website company profile Villa Songgoriti Heritage dengan sistem reservasi online dan integrasi payment gateway untuk pemesanan kamar.",
     image: "./Villa Songgoriti Heritage.png",
     tech: "WordPress, PHP, Custom Theme",
     link: "#",
+  },
+  {
+    id: "8",
+    title: "Travel Demo 5",
+    description:
+      "Demo interaktif: listing destinasi, pencarian, dan alur booking untuk Travel Demo 5 (contoh UI/UX).",
+    image: "./travel-5.png",
+    tech: "WordPress, PHP, Custom Theme",
+    link: "https://embed-iota.vercel.app/travel-5",
+  },
+  {
+    id: "9",
+    title: "Travel Demo 4",
+    description:
+      "Demo interaktif: listing destinasi, pencarian, dan alur booking untuk Travel Demo 4 (contoh UI/UX).",
+    image: "./travel-4.png",
+    tech: "WordPress, PHP, Custom Theme",
+    link: "https://embed-iota.vercel.app/travel-4",
+  },
+  {
+    id: "10",
+    title: "Travel Demo 3",
+    description:
+      "Demo interaktif: listing destinasi, pencarian, dan alur booking untuk Travel Demo 3 (contoh UI/UX).",
+    image: "./travel-3.png",
+    tech: "WordPress, PHP, Custom Theme",
+    link: "https://embed-iota.vercel.app/travel-3",
+  },
+  {
+    id: "11",
+    title: "Travel Demo 2",
+    description:
+      "Demo interaktif: listing destinasi, pencarian, dan alur booking untuk Travel Demo 2 (contoh UI/UX).",
+    image: "./travel-2.png",
+    tech: "WordPress, PHP, Custom Theme",
+    link: "https://embed-iota.vercel.app/travel-2",
+  },
+  {
+    id: "12",
+    title: "Travel Demo 1",
+    description:
+      "Demo interaktif: listing destinasi, pencarian, dan alur booking untuk Travel Demo 1 (contoh UI/UX).",
+    image: "./travel-1.png",
+    tech: "WordPress, PHP, Custom Theme",
+    link: "https://embed-iota.vercel.app/travel-1",
   },
 ];
 
