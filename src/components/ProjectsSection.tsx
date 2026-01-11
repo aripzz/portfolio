@@ -112,6 +112,15 @@ const defaultProjects: Project[] = [
     tech: "WordPress, PHP, Custom Theme",
     link: "https://embed-iota.vercel.app/travel-1",
   },
+  {
+    id: "13",
+    title: "Travel — Demo Collection",
+    description:
+      "Landing page demo untuk Travel: kumpulan demo interaktif (listing destinasi, pencarian, alur booking) dan contoh integrasi UI/UX.",
+    image: "./travel.png",
+    tech: "NextJS, React, Tailwind CSS",
+    link: "https://embed-iota.vercel.app/travel",
+  },
 ];
 
 export default function ProjectsSection({ onOpen }: { onOpen?: (p: Project) => void }) {
